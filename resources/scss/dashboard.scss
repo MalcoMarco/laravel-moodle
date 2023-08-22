@@ -1,0 +1,205 @@
+//@import "~bootstrap/scss/bootstrap";
+//@import "bootstrap/scss/bootstrap";
+
+.label-required::after {
+    font-family: "Font Awesome 6 Free";
+    content: "\f06a";
+    margin-left: 5px;
+    font-weight: 600;
+    text-align: center;
+    color: #ca3120;
+}
+.table.b-table > tfoot > tr > [aria-sort]:not(.b-table-sort-icon-left),
+.table.b-table > thead > tr > [aria-sort]:not(.b-table-sort-icon-left) {
+    background-position: right 0.375rem center;
+    padding-right: calc(0.75rem + 0.65em);
+}
+.table.b-table > tfoot > tr > [aria-sort="none"],
+.table.b-table > thead > tr > [aria-sort="none"] {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='101' height='101' preserveAspectRatio='none'%3E%3Cpath opacity='.3' d='M51 1l25 23 24 22H1l25-22zm0 100l25-23 24-22H1l25 22z'/%3E%3C/svg%3E");
+}
+.table.b-table > tfoot > tr > [aria-sort],
+.table.b-table > thead > tr > [aria-sort] {
+    cursor: pointer;
+    // background-image: none;
+    background-repeat: no-repeat;
+    background-size: 0.65em 1em;
+}
+.table.b-table > tfoot > tr > [aria-sort="ascending"],
+.table.b-table > thead > tr > [aria-sort="ascending"] {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='101' height='101' preserveAspectRatio='none'%3E%3Cpath d='M51 1l25 23 24 22H1l25-22z'/%3E%3Cpath opacity='.3' d='M51 101l25-23 24-22H1l25 22z'/%3E%3C/svg%3E");
+}
+.table.b-table > tfoot > tr > [aria-sort="descending"],
+.table.b-table > thead > tr > [aria-sort="descending"] {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='101' height='101' preserveAspectRatio='none'%3E%3Cpath opacity='.3' d='M51 1l25 23 24 22H1l25-22z'/%3E%3Cpath d='M51 101l25-23 24-22H1l25 22z'/%3E%3C/svg%3E");
+}
+.table.b-table[aria-busy="true"] {
+    opacity: 0.55;
+}
+
+.b-toast {
+    display: block;
+    position: relative;
+    max-width: 350px;
+    backface-visibility: hidden;
+    background-clip: padding-box;
+    z-index: 1;
+    border-radius: 0.25rem;
+}
+.b-toast .toast {
+    opacity: 1;
+}
+.b-toast .toast {
+    background-color: hsla(0, 0%, 100%, 0.85);
+    display: block;
+}
+.toast {
+    -ms-flex-preferred-size: 350px;
+    flex-basis: 350px;
+    max-width: 350px;
+    font-size: 0.875rem;
+    background-color: hsla(0, 0%, 100%, 0.85);
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    border-radius: 0.25rem;
+}
+.toast-header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    color: #6c757d;
+    background-color: hsla(0, 0%, 100%, 0.85);
+    background-clip: padding-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+.b-toast .toast .toast-body {
+    display: block;
+}
+.toast-body {
+    padding: 0.75rem;
+}
+.ml-auto,
+.mx-auto {
+    margin-left: auto !important;
+}
+.b-toaster.b-toaster-top-center,
+.b-toaster.b-toaster-top-full,
+.b-toaster.b-toaster-top-left,
+.b-toaster.b-toaster-top-right {
+    top: 0;
+}
+.b-toaster.b-toaster-bottom-center,
+.b-toaster.b-toaster-bottom-full,
+.b-toaster.b-toaster-bottom-left,
+.b-toaster.b-toaster-bottom-right,
+.b-toaster.b-toaster-top-center,
+.b-toaster.b-toaster-top-full,
+.b-toaster.b-toaster-top-left,
+.b-toaster.b-toaster-top-right {
+    position: fixed;
+    left: 0.5rem;
+    right: 0.5rem;
+    margin: 0;
+    padding: 0;
+    height: 0;
+    overflow: visible;
+}
+.b-toaster {
+    z-index: 1100;
+}
+.b-toaster.b-toaster-bottom-center .b-toaster-slot,
+.b-toaster.b-toaster-bottom-right .b-toaster-slot,
+.b-toaster.b-toaster-top-center .b-toaster-slot,
+.b-toaster.b-toaster-top-right .b-toaster-slot {
+    margin-left: auto !important;
+}
+.b-toaster.b-toaster-top-center .b-toaster-slot,
+.b-toaster.b-toaster-top-full .b-toaster-slot,
+.b-toaster.b-toaster-top-left .b-toaster-slot,
+.b-toaster.b-toaster-top-right .b-toaster-slot {
+    top: 0.5rem;
+}
+.b-toaster.b-toaster-bottom-center .b-toaster-slot,
+.b-toaster.b-toaster-bottom-full .b-toaster-slot,
+.b-toaster.b-toaster-bottom-left .b-toaster-slot,
+.b-toaster.b-toaster-bottom-right .b-toaster-slot,
+.b-toaster.b-toaster-top-center .b-toaster-slot,
+.b-toaster.b-toaster-top-full .b-toaster-slot,
+.b-toaster.b-toaster-top-left .b-toaster-slot,
+.b-toaster.b-toaster-top-right .b-toaster-slot {
+    position: absolute;
+    max-width: 350px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    margin-left: 0px;
+}
+.b-toaster .b-toaster-slot {
+    position: relative;
+    display: block;
+}
+
+
+
+.custom-switch {
+    display: inline-flex;
+    margin-left: 10px;
+    width: 150px;
+    .label-no {
+        margin-right: 5px;
+    }
+}
+.custom-switch .label-no {
+    margin-right: 5px;
+}
+
+.b-toast-danger .toast {
+    background-color: rgba(252, 237, 238, 0.85);
+    border-color: rgba(245, 198, 203, 0.85);
+    color: #721c24;
+}
+.b-toast-danger .toast .toast-header {
+    color: #721c24;
+    background-color: rgba(248, 215, 218, 0.85);
+    border-bottom-color: rgba(245, 198, 203, 0.85);
+}
+
+.b-toast-success .toast {
+    background-color: rgba(230,245,233,.85);
+    border-color: rgba(195,230,203,.85);
+    color: #155724;
+  }
+.b-toast-success .toast .toast-header {
+    color: #155724;
+    background-color: rgba(212,237,218,.85);
+    border-bottom-color: rgba(195,230,203,.85);
+}
+
+.b-toast-info .toast {
+    background-color: rgba(229,244,247,.85);
+    border-color: rgba(190,229,235,.85);
+    color: #0c5460;
+  }
+  .b-toast-info .toast .toast-header {
+    color: #0c5460;
+    background-color: rgba(209,236,241,.85);
+    border-bottom-color: rgba(190,229,235,.85);
+  }
+
+  .b-toast-warning .toast {
+    color: #856404;
+  }
+  .b-toast-warning .toast .toast-header {
+    color: #856404;
+    background-color: rgba(255,243,205,.85);
+    border-bottom-color: rgba(255,238,186,.85);
+  }
+
