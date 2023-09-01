@@ -18,7 +18,7 @@ export default defineConfig({
                 "resources/css/app.css",
                 "resources/scss/dashboard.scss",
                 "resources/js/app.js",
-                "resources/js/example-component.js",
+               // "resources/js/example-component.js",
                 "resources/js/silabus/requisitosComponent.js",
                 "resources/js/silabus/listComponent.js",
                 "resources/js/historialClinico/crearComponent.js",

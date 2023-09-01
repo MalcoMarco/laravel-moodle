@@ -1,11 +1,8 @@
 <x-dashboard-layout>
     <x-slot name="scripts">
-        @vite(['resources/js/example-component.js'])
+        {{-- @vite(['resources/js/example-component.js']) --}}
 	</x-slot>
     <div class="card">
-        <div id="example">
-            <example-component></example-component>
-        </div>
         <div class="card-body">
             welcome Auth User:
             <div class="row">
