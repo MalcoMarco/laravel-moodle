@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('silabus', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('mdl_user_id');
+            $table->BigInteger('mdl_user_id');
             $table->unsignedBigInteger('state_type_id');
             $table->string('curso_name',125);
             $table->string('escuela',125);
@@ -28,6 +28,9 @@ return new class extends Migration
             $table->foreign('state_type_id')
                 ->references('id')->on('state_types')
                 ->onDelete('restrict');
+            $table->foreign('mdl_user_id')
+                ->references('id')->on(config('app.db_name_moodle').'.mdl_user')
+                ->onDelete('cascade');
         });
 
         Schema::create('silabu_reqs', function (Blueprint $table) {

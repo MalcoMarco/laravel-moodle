@@ -203,3 +203,25 @@
     border-bottom-color: rgba(255,238,186,.85);
   }
 
+
+  // badge for status_guard_name
+
+  .badge-R{
+    background-color: #e55353 !important;
+  }
+  .badge-ER{
+    background-color:#39f !important
+  }
+  .badge-OB{
+    background-color: #f9b115 !important
+  }
+  .badge-D{
+    background-color: #f9b115 !important
+  }
+  .badge-A{
+    background-color: #2eb85c !important
+  }
+
+  .btn-success, .btn-primary, .btn-warning, .btn-danger{
+    color: white;
+  }

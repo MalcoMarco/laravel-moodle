@@ -8,7 +8,7 @@
 	</x-slot>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-tile mb-3">Observaciones</h5>
+            <h5 class="card-tile mb-3">Detalles de observaciones</h5>
             @if (session('status'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>{{ session('status') }}</strong> 
@@ -25,8 +25,8 @@
                 <td>{{$silabo->escuela}} </td>
             </tr>
             <tr>
-                <th>Escuela</th>
-                <td>{{$silabo->escuela}} </td>
+                <th>Docente</th>
+                <td>{{$silabo->user->username}} {{$silabo->user->lastname}}</td>
             </tr>
             <tr>
                 <th>Documento</th>

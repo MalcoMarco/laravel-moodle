@@ -7,9 +7,10 @@ use App\Models\Silabus\SilabuReq;
 use App\Models\StateType;
 use Illuminate\Http\Request;
 use Auth;
-use Illuminate\Validation\Rules\File;
+use Illuminate\Validation\Rules\File as FileRule;
 use Illuminate\Support\Facades\DB;
-use Storage;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 class SilabuController extends Controller
 {
     /**
@@ -18,6 +19,16 @@ class SilabuController extends Controller
     public function index()
     {
         return view('dashboard.silabus.list');
+    }
+
+    public function viewAprobado(Silabu $silabo)
+    {
+
+        //$silabo = Silabu::with('incomplete_reqs')->findOrFail($silabo);
+    
+        //return compact('silaboReqs','silabu');
+        
+        return view('dashboard.silabus.aprobado',compact('silabo'));
     }
 
     /**
@@ -74,7 +85,7 @@ class SilabuController extends Controller
             'horas_teoricas'    => 'nullable|integer|max:125',
             'horas_practicas'   => 'nullable|integer|max:125',
 
-            "silabo_file"   => ['required',File::types(['pdf'])->max(5 * 1024)]
+            "silabo_file"   => ['required',FileRule::types(['pdf'])->max(5 * 1024)]
         ]);
 
         $statusEnRevicion = StateType::where('guard_name','ER')->first();
@@ -130,14 +141,16 @@ class SilabuController extends Controller
                     'description' => $requisito["description"],
                   ]);
             }
-            $silabu->state_type_id = 4; // id en revicion
+            $silabu->state_type_id = 7; // id de OBSERVADO
             $silabu->save();
+            $message = 'Silabo en OBSERVACION.';
         }else{
             //aprobar
             $silabu->state_type_id = 5; // id aprobado
             $silabu->save();
+            $message = 'Silabo APROBADO.';
         }
-        return redirect()->route('silabus.review',$silabo)->with('status', 'Datos Actualizados!');; 
+        return redirect()->route('silabus.review',$silabo)->with('status', 'Datos Actualizados!')->with('message',$message); 
     }
 
     public function observacion($silabu)
@@ -160,9 +173,9 @@ class SilabuController extends Controller
         }
 
         $this->validate($request, [
-            "silabo_file"   => ['required',File::types(['pdf'])->max(5 * 1024)]
+            "silabo_file"   => ['required',FileRule::types(['pdf'])->max(5 * 1024)]
         ]);
-        $fileToDeletePath = $silabo->pdf_url;
+        $fileToDeleteUrl = $silabo->pdf_url;
         if($request->file()) {
             $statusEnRevicion = StateType::where('guard_name','ER')->first();
 
@@ -174,8 +187,8 @@ class SilabuController extends Controller
             $silabo->pdf_url = '/storage/' . $fileUrl;
             $silabo->save();
             
-            if(Storage::exists($fileToDeletePath)){
-                Storage::delete($fileToDeletePath);
+            if (File::exists(public_path($fileToDeleteUrl))) {
+                File::delete(public_path($fileToDeleteUrl));
             }
         }
 
@@ -190,11 +203,12 @@ class SilabuController extends Controller
         if (Auth::user()->id != $silabu->mdl_user_id) {
             abort(403, 'Acción no autorizada.');
         }
-        $fileToDeletePath = $silabu->pdf_url;
+        $fileToDeleteUrl = $silabu->pdf_url;
         $silabu->delete();
-        if(Storage::exists($fileToDeletePath)){
-            Storage::delete($fileToDeletePath);
+        if (File::exists(public_path($fileToDeleteUrl))) {
+            File::delete(public_path($fileToDeleteUrl));
         }
+
         return response()->json(['message'=>"Se ha eliminado un elemento"], 200);
     }
 

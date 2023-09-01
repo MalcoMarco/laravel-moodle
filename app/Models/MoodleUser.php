@@ -31,6 +31,26 @@ class MoodleUser  extends Authenticatable
         'password',
     ];
 
+    //Add extra attribute
+    protected $attributes = ['picture_url'];
+
+    //Make it available in the json response
+    protected $appends = ['picture_url'];
+
+    //implement the attribute
+    public function getPictureUrlAttribute()
+    {
+        $default_avatar = config('app.url_moodle')."/theme/image.php/boost/core/1689475891/u/f1";
+        if ($this->picture==0) {
+            return $default_avatar;
+        }
+        $mdl_file = DB::table(config('app.db_name_moodle').'.mdl_files')->select('id','contextid')->find($this->picture);
+        if (!$mdl_file) {
+            return $default_avatar;
+        }
+
+        return config('app.url_moodle')."/pluginfile.php/$mdl_file->contextid/user/icon/boost/f1?rev=$mdl_file->id";
+    }
 
     /**
      * Get the indexable data array for the model.

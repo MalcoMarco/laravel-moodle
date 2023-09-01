@@ -21,11 +21,31 @@ class PermissionsSeeder extends Seeder
          * u:update
          * d:delete
          */
+
+        /*          :::MDL_ROLES:::
+
+        //  ID      SHORTNAME           SORTORDER       ARCHETYPE
+        //  1		manager		        1	            manager
+        //  2		coursecreator		2	            coursecreator
+        //  3		editingteacher		3	            editingteacher
+        //  4		teacher		        4	            teacher
+        //  5		student		        5	            student
+        //  6		guest		        6	            guest
+        //  7		user		        7	            user
+        //  8		frontpage		    8	            frontpage
+ 
+         */
+
         $data_permissions = [
+            //Silabo
             ['name'=>'cru_gestion-silabus', 'roles_ids' => [3,4]],
             ['name'=>'ru_gestion-silabus', 'roles_ids' => [1]],//revisa y aprueba los silabos
 
-            ['name'=>'xxx_modulo_matricula_estudiante', 'roles_ids' => [1,5]],
+            //['name'=>'xxx_modulo_matricula_estudiante', 'roles_ids' => [1,5]],//no usado todavia
+            //Historial clinico
+            ['name'=>'crd_historialClinico', 'roles_ids' => [1]],//crea y revisa historiales clinicos
+
+
             //['name'=>'', 'roles_ids'=> []],
             //...
         ];

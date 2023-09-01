@@ -112,14 +112,13 @@ export default {
                     centered: true
                 })
                 .then(value => {
-                    axios.delete("/silabus-reqs/" + id).then(res => {
-                        this.getData();
-                        this.closeModal();
-                    });
+                    if(value){
+                        axios.delete("/silabus-reqs/" + id).then(res => {
+                            this.getData();
+                            this.closeModal();
+                        });
+                    }
                 })
-                .catch(err => {
-                    // An error occurred
-                });
         },
         openModal() {
             this.modal = true;

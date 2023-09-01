@@ -28,7 +28,7 @@
             <h5 class="card-tile mb-3">Revisar Sílabo</h5>
             @if (session('status'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>{{ session('status') }}</strong> 
+                    {{ session('status') }} <strong>{{ session('message') }}</strong> 
                     <button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>
                   </div>
             @endif
@@ -91,7 +91,8 @@
                             </tbody>
                         </table>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <a href="{{route('silabus.index')}}" role="button" class="btn btn-default me-4">volver</a>
+                            <button type="submit" class="btn btn-success">Enviar</button>
                         </div>
                     </form>
                 </div>

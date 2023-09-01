@@ -6,6 +6,9 @@
             <template #cell(#)="data">
                 {{ data.index + pagination.from }}
             </template>
+            <template #cell(status)="data">
+                <span class="badge" :class="'badge-'+data.item.status_guard_name">{{ data.item.status }}</span>
+            </template>
              <template #cell(Opciones)="data">
                 <button  @click="verItem(data.item)" class="btn btn-link btn-sm me-3">
                     Ver
@@ -15,10 +18,15 @@
                     :href="'/silabus-review/'+data.item.id">
                     Revisión
                 </a>
-                <a v-if="data.item.status_guard_name =='D'"
+                <a v-if="data.item.status_guard_name =='OB'"
                     @click="editItem(data.item)" class="btn btn-warning btn-sm me-3 text-white"
                     :href="'/silabus-observacion/'+data.item.id">
                     Observado
+                </a>
+                <a v-if="data.item.status_guard_name =='A'"
+                    @click="editItem(data.item)" class="btn btn-success btn-sm me-3 text-white"
+                    :href="'/silabo-aprobado/'+data.item.id" target="_blank">
+                    Aprobado
                 </a>
                 <button @click="deleteItem(data.item.id)" class="btn btn-link btn-sm text-danger">
                     Eliminar
@@ -168,28 +176,28 @@ export default {
                     centered: true
                 })
                 .then(value => {
-                    axios.delete(`/silabus/${id}`).then(res => {
-                        this.getData();
-                        this.$bvToast.toast(res.data.message, {
-                            title: `Eliminado`,
-                            variant: 'success',
-                            solid: true,
-                            autoHideDelay: 5000,
-                        })
+                    if (value) {
+                        axios.delete(`/silabus/${id}`).then(res => {
+                            this.getData();
+                            this.$bvToast.toast(res.data.message, {
+                                title: `Eliminado`,
+                                variant: 'success',
+                                solid: true,
+                                autoHideDelay: 5000,
+                            })
+                            
+                        }).catch(err => {
+                            let errorMsg = err.response?.data.message || ''
+                            this.$bvToast.toast(errorMsg, {
+                                title: `Ocurrio un Error`,
+                                variant: 'danger',
+                                solid: true,
+                                autoHideDelay: 5000,
+                            })
+                        });
                         
-                    }).catch(err => {
-                        let errorMsg = err.response?.data.message || ''
-                        this.$bvToast.toast(errorMsg, {
-                            title: `Ocurrio un Error`,
-                            variant: 'danger',
-                            solid: true,
-                            autoHideDelay: 5000,
-                        })
-                    });
+                    }
                 })
-                .catch(err => {
-                    
-                });
         },
         sortChanged(event) {
             this.sortBy = event.sortBy;

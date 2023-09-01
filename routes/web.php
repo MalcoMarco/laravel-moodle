@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthAdminController;
 use App\Http\Controllers\MoodleUserController;
 use App\Http\Controllers\SilabuController;
+use App\Http\Controllers\HistorialClinicoController;
 use Illuminate\Support\Facades\DB;
 use App\Models\MdlRole;
 use App\Models\Permission;
@@ -29,6 +30,8 @@ use App\Models\Permission;
 
 Route::post('/logout',[AuthAdminController::class, 'logout'])->name('logout');
 Route::get('/logout',[AuthAdminController::class, 'logout']);
+// ver/descargar silabo aprobado
+Route::get('/silabo-aprobado/{silabo}',[SilabuController::class, 'viewAprobado'])->name('silabus.viewAprobado');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () { return redirect('/dashboard'); });
@@ -69,6 +72,13 @@ Route::middleware(['auth'])->group(function () {
         //levantar observaciones
         Route::get('/silabus-observacion/{silabo}',[SilabuController::class, 'observacion'])->name('silabus.observacion');
         Route::post('/silabus-observacion/{silabo}',[SilabuController::class, 'observacionUpdate'])->name('silabus.observacionUpdate');
+    });
+    //historial clinico
+    Route::middleware(['can:crd_historialClinico'])->group(function () {
+        Route::get('/historial-clinico',[HistorialClinicoController::class, 'index'])->name('historialClinico.index');
+        Route::get('/historial-clinico-crear',[HistorialClinicoController::class, 'create'])->name('historialClinico.create');
+        Route::post('/historial-clinico-store',[HistorialClinicoController::class, 'store'])->name('historialClinico.store');
+        Route::get('/historial-clinico-historial/{user}',[HistorialClinicoController::class, 'historial'])->name('historialClinico.historial');
 
     });
 });

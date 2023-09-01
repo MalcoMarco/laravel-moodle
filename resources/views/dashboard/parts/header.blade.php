@@ -11,12 +11,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{config('app.url_moodle')}}">Moodle Proyect</a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="#">Users</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Settings</a>
-            </li>
+            </li> --}}
         </ul>
         <nav class="header-nav ms-auto me-4">
             <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
@@ -38,26 +35,25 @@
                     aria-expanded="false">
                     <div class="avatar avatar-md">
                         <img class="avatar-img"
-                            src="https://upload.wikimedia.org/wikipedia/commons/f/f4/User_Avatar_2.png" alt="." />
+                            src="{{Auth::user()->picture_url}}" alt="." />
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end pt-0">
                     <div class="dropdown-header bg-light py-2 dark:bg-white dark:bg-opacity-10">
-                        <div class="fw-semibold">Account</div>
+                        {{-- <div class="fw-semibold">Account</div> --}}
                         {{Auth::user()->firstname}}
                     </div>
-                    <a class="dropdown-item" href="#">
+                    {{-- <a class="dropdown-item" href="#">
                         Updates<span class="badge badge-sm bg-info-gradient ms-2">42</span>
                     </a>
                         
                     <div class="dropdown-header bg-light py-2 dark:bg-white dark:bg-opacity-10">
                         <div class="fw-semibold">Settings</div>
-                    </div>
+                    </div> --}}
                     <a class="dropdown-item" href="{{ config('app.url_moodle').'/user/profile.php' }}">
                         Profile</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        Lock Account</a>
+
                         <a class="dropdown-item" href="{{ route('logout') }}">
                         Logout</a>
                 </div>

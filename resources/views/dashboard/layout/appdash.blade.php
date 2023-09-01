@@ -39,7 +39,8 @@
 
 </head>
 
-<body class="dark-theme">
+<body>
+    {{-- class="dark-theme" --}}
     @include("dashboard/parts/sidebar")
 
     {{-- @include("dashboard/parts/aside") --}}

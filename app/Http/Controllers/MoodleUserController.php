@@ -22,7 +22,14 @@ class MoodleUserController extends Controller
         $perPage = $request->per_page ?? 100;
         $orderBy = $request->order_by ?? 'lastname';
         $orderMode = $request->order_mode ?? 'DES';
-        return MoodleUser::search($query)->orderBy($orderBy , $orderMode)->paginate($perPage);
+        return MoodleUser::search($query)->orderBy($orderBy , $orderMode)
+        ->query(function ($builder) {
+            $builder->select('id','username','firstname','lastname','email','picture','phone1','phone2','address')
+            ->where('id','!=', '1'); // quita el usuario invitado
+        })->paginate($perPage);
+
+        //url default del usuario: /theme/image.php/boost/core/1689475891/u/f1
+        //small avatar: "/theme/image.php/boost/core/1689475891/u/f2"
     }
     
 }

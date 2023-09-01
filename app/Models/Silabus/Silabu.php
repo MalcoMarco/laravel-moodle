@@ -21,13 +21,19 @@ class Silabu extends Model
         'creditos',
         'horas_teoricas',
         'horas_practicas',
-        'pdf_path','pdf_url'
+        'pdf_path',
+        'pdf_url'
     ];
 
     public function incomplete_reqs()
     {
         return $this->belongsToMany(SilabuReq::class, 'silabu_incomplete_reqs')
             ->withPivot('description');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\MoodleUser::class, 'mdl_user_id');
     }
 
 
