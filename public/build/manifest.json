@@ -1,0 +1,92 @@
+{
+  "__plugin-vue2_normalizer-f70b0ffa.js": {
+    "file": "assets/_plugin-vue2_normalizer-f70b0ffa.js"
+  },
+  "_index-9f6650dc.js": {
+    "file": "assets/index-9f6650dc.js",
+    "imports": [
+      "__plugin-vue2_normalizer-f70b0ffa.js"
+    ]
+  },
+  "_table-45e0f0c7.js": {
+    "file": "assets/table-45e0f0c7.js",
+    "imports": [
+      "__plugin-vue2_normalizer-f70b0ffa.js"
+    ]
+  },
+  "_vue-multiselect.min-cc2e7f2f.js": {
+    "css": [
+      "assets/vue-multiselect-90107fa9.css"
+    ],
+    "file": "assets/vue-multiselect.min-cc2e7f2f.js"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-2060bf4a.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-0d91dc04.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/historialClinico/buscarComponent.js": {
+    "file": "assets/buscarComponent-c023034c.js",
+    "imports": [
+      "resources/js/app.js",
+      "__plugin-vue2_normalizer-f70b0ffa.js",
+      "_vue-multiselect.min-cc2e7f2f.js",
+      "_index-9f6650dc.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/historialClinico/buscarComponent.js"
+  },
+  "resources/js/historialClinico/crearComponent.js": {
+    "file": "assets/crearComponent-9ec3036d.js",
+    "imports": [
+      "resources/js/app.js",
+      "__plugin-vue2_normalizer-f70b0ffa.js",
+      "_vue-multiselect.min-cc2e7f2f.js",
+      "_index-9f6650dc.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/historialClinico/crearComponent.js"
+  },
+  "resources/js/silabus/listComponent.css": {
+    "file": "assets/listComponent-cc0b4d7f.css",
+    "src": "resources/js/silabus/listComponent.css"
+  },
+  "resources/js/silabus/listComponent.js": {
+    "css": [
+      "assets/listComponent-cc0b4d7f.css"
+    ],
+    "file": "assets/listComponent-10ed0957.js",
+    "imports": [
+      "resources/js/app.js",
+      "__plugin-vue2_normalizer-f70b0ffa.js",
+      "_table-45e0f0c7.js",
+      "_index-9f6650dc.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/silabus/listComponent.js"
+  },
+  "resources/js/silabus/requisitosComponent.js": {
+    "file": "assets/requisitosComponent-ba8f0c71.js",
+    "imports": [
+      "resources/js/app.js",
+      "__plugin-vue2_normalizer-f70b0ffa.js",
+      "_table-45e0f0c7.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/silabus/requisitosComponent.js"
+  },
+  "resources/scss/dashboard.scss": {
+    "file": "assets/dashboard-61ad8df9.css",
+    "isEntry": true,
+    "src": "resources/scss/dashboard.scss"
+  },
+  "vue-multiselect.css": {
+    "file": "assets/vue-multiselect-90107fa9.css",
+    "src": "vue-multiselect.css"
+  }
+}
