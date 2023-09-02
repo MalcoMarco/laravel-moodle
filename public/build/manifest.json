@@ -30,6 +30,17 @@
     "isEntry": true,
     "src": "resources/js/app.js"
   },
+  "resources/js/egresado/egresadoComponent.js": {
+    "file": "assets/egresadoComponent-26395c88.js",
+    "imports": [
+      "resources/js/app.js",
+      "__plugin-vue2_normalizer-f70b0ffa.js",
+      "_vue-multiselect.min-cc2e7f2f.js",
+      "_index-9f6650dc.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/egresado/egresadoComponent.js"
+  },
   "resources/js/historialClinico/buscarComponent.js": {
     "file": "assets/buscarComponent-c023034c.js",
     "imports": [

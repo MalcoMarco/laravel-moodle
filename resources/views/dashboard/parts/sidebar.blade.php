@@ -35,7 +35,7 @@
         @endcan
         @can('crd_seguimientoEgresado')
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('egresado.index')}}">
                     <i class="fas fa-users nav-icon"></i>
                     Seg. Egresados</a>
             </li>

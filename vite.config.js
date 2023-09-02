@@ -23,6 +23,7 @@ export default defineConfig({
                 "resources/js/silabus/listComponent.js",
                 "resources/js/historialClinico/crearComponent.js",
                 "resources/js/historialClinico/buscarComponent.js",
+                "resources/js/egresado/egresadoComponent.js",
             ],
             refresh: [...refreshPaths, "app/Http/Livewire/**"],
         }),

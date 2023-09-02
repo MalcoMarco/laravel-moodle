@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthAdminController;
 use App\Http\Controllers\MoodleUserController;
 use App\Http\Controllers\SilabuController;
 use App\Http\Controllers\HistorialClinicoController;
+use App\Http\Controllers\EgresadoController;
 use Illuminate\Support\Facades\DB;
 use App\Models\MdlRole;
 use App\Models\Permission;
@@ -80,6 +81,13 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/historial-clinico-store',[HistorialClinicoController::class, 'store'])->name('historialClinico.store');
         Route::get('/historial-clinico-historial/{user}',[HistorialClinicoController::class, 'historial'])->name('historialClinico.historial');
 
+    });
+    //historial clinico
+    Route::middleware(['can:crd_seguimientoEgresado'])->group(function () {
+        Route::get('/egresados',[EgresadoController::class, 'index'])->name('egresado.index');
+        Route::get('/egresados/{user}',[EgresadoController::class, 'show'])->name('egresado.show');
+        Route::post('/egresados/{user}',[EgresadoController::class, 'store'])->name('egresado.store');
+        
     });
 });
 // Route::middleware([

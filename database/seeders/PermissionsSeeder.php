@@ -25,6 +25,7 @@ class PermissionsSeeder extends Seeder
         /*          :::MDL_ROLES:::
 
         //  ID      SHORTNAME           SORTORDER       ARCHETYPE
+        //-----------------------------------------------------------
         //  1		manager		        1	            manager
         //  2		coursecreator		2	            coursecreator
         //  3		editingteacher		3	            editingteacher
@@ -45,7 +46,11 @@ class PermissionsSeeder extends Seeder
             //Historial clinico
             ['name'=>'crd_historialClinico', 'roles_ids' => [1]],//crea y revisa historiales clinicos
 
-
+            //Seguimineto de Egresados
+            ['name'=>'crd_seguimientoEgresado', 'roles_ids'=> [1]],
+            
+            //Bolsa de trabajo
+            ['name'=>'crd_bolsaTrabajo', 'roles_ids'=> [1]],
             //['name'=>'', 'roles_ids'=> []],
             //...
         ];
