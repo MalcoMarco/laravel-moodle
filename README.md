@@ -1,5 +1,5 @@
-# En el Proyecto de MOODLE 
-editar el archivo './lib/classes/session/manager.php'
+# En el Proyecto de MOODLE 4.2.1
+editar el archivo '/lib/classes/session/manager.php'
 
 ```php
 //linea 383

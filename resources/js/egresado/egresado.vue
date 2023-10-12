@@ -236,7 +236,7 @@
                                     />
                                 </div>
                             </div>
-                            <div class="form-group mb-2 row">
+                            <div class="form-group mb-2 row d-none">
                                 <label class="col-sm-4 col-form-label">
                                     Evidencia
                                 </label>
@@ -342,7 +342,7 @@
                 </div>
             </div>
             <div class="text-center mt-3">
-                <button @click="saveEgresado()" class="btn btn-primary">
+                <button :disabled="inputDisable" @click="saveEgresado()" class="btn btn-primary">
                     <i class="fas fa-save"></i> Guardar Cambios
                 </button>
             </div>
@@ -391,6 +391,7 @@ export default {
             }
             axios.get("/egresados/" + this.selectedusers.id).then(res => {
                 this.egresado = res.data.egresado;
+                this.inputDisable = true
             });
         },
         saveEgresado(){
@@ -400,6 +401,7 @@ export default {
             this.egresado.mdl_user_id = this.selectedusers.id
             axios.post("/egresados/" + this.selectedusers.id,this.egresado).then(res => {
                 this.egresado = res.data.egresado;
+                this.inputDisable = true
             });
         }
     }

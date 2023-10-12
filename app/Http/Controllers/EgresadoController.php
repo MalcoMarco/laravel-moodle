@@ -48,6 +48,13 @@ class EgresadoController extends Controller
             'direccion_empresa' => 'nullable|string|max:100',
             "evidencia_file"   => ['nullable',FileRule::types(['pdf'])->max(5 * 1024)]
         ]);
+        /*if($request->file()) {
+            $name = time().'_'.$request->egresado_file->getClientOriginalName();
+            $fileUrl = $request->file('egresado_file')->storeAs('uploads/egresados', $name, 'public');
+            //$data->pdf_path = time().'_'.$request->egresado_file->getClientOriginalName();
+            $data->pdf_url = '/storage/' . $fileUrl;
+            $data->save();
+        }*/
         $data = $request->all();
         Egresado::updateOrInsert(['mdl_user_id'=>$user->id],$data);
         return response()->json(['message'=>"Datos Guardados"], 200);
